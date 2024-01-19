@@ -11,13 +11,24 @@ class ShoppingCart:
         self.current_date=current_date        
 
     
-    def add_item(self):
+    def add_item(self, item_to_purchase):
         pass
-    def remove_item(self):
-        pass
+        
+    def remove_item(self, item_name):
 
-    def modify_item(self):
-        pass
+        for idx, item in enumerate(self.cart_items):
+            if item.name == item_name:
+                del self.cart_items[idx]
+                break
+        else:
+            print("Item not found in cart. Nothing removed.")           
+        
+    def modify_item(self, item_to_purchase):
+        for idx, item in enumerate(self.cart_items):
+            if item.name == item_to_purchase.name:                
+                break
+        else:
+            print(" Item not found in cart. Nothing modified.") 
 
     def get_num_items_in_cart(self):
         pass
@@ -25,8 +36,14 @@ class ShoppingCart:
     def get_cost_of_cart(self):
         pass
 
+    # Outputs total of objects in cart
     def print_total(self):
-        pass
+        print(f"{self.customer_name}'s Shopping Cart - {self.current_date}")
+        num_items = len(self.cart_items)
+        if num_items:
+            print(f"Number of Itmes: {num_items}")
+        else:
+            print("SHOPPING CART IS EMPTY")        
 
     def print_descriptions(self):
         pass
@@ -38,6 +55,7 @@ def print_menu(shopping_cart):
         choice = input_choice()
         if choice == "q":
             break
+        elif choice == ""
 
 
 def input_choice():
