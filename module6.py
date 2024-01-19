@@ -30,11 +30,29 @@ class ShoppingCart:
 
     def print_descriptions(self):
         pass
-        
+
+
+
+def print_menu(shopping_cart):
+    while True:
+        choice = input_choice()
+        if choice == "q":
+            break
+
+
+def input_choice():
+    print("\nMENU")
+    print("a - Add item to cart")
+    print("r - Remove item from cart")
+    print("c - Change item quantity")
+    print("i - Output items' descriptions")
+    print("o - Output shopping cart")
+    print("q - Quit")
+    return input("Choose an option: ")    
 
 
 def main():
-    pass
+    print_menu(None)
    
 
 if __name__ == "__main__":
