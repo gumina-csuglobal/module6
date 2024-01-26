@@ -48,7 +48,7 @@ class ShoppingCart:
     def remove_item(self, item_name):
 
         for idx, item in enumerate(self.cart_items):
-            if item.name == item_name:
+            if item.item_name == item_name:
                 del self.cart_items[idx]
                 break
         else:
@@ -60,12 +60,13 @@ class ShoppingCart:
         # Check if item already in cart and modify.
         
         for idx, item in enumerate(self.cart_items):
-            if item.name == item_to_purchase.name:
+            if item.item_name == item_to_purchase.item_name:
 
                 # If item_to_purchase is default, do not modify
                 if item_to_purchase.is_default():
                     break
                 self.cart_items[idx] = item_to_purchase
+                break
 
         # Item not found        
         else:
@@ -90,7 +91,7 @@ class ShoppingCart:
 
     # Outputs total of objects in cart
     def print_total(self):
-        print("OUTPUT SHOPPING CART")
+        print("\nOUTPUT SHOPPING CART")
         print(f"{self.customer_name}'s Shopping Cart - {self.current_date}")
         num_items = len(self.cart_items)
         if num_items:
@@ -104,7 +105,7 @@ class ShoppingCart:
 
     # Outputs each item's description
     def print_descriptions(self):
-        print("OUTPUT ITEMS' DESCRIPTIONS")
+        print("\nOUTPUT ITEMS' DESCRIPTIONS")
         print(f"{self.customer_name}'s Shopping Cart - {self.current_date}")
         print("Item Descriptions")
         for item in self.cart_items:
@@ -125,7 +126,7 @@ def print_menu(shopping_cart):
 
 
 def input_choice():
-    print("\nMENU")
+    print("\n\nMENU")
     print("a - Add item to cart")
     print("r - Remove item from cart")
     print("c - Change item quantity")
